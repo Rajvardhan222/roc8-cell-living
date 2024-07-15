@@ -145,29 +145,33 @@ start.addEventListener("click", () => {
 });
 
 let stop = document.getElementsByClassName("stop")[0];
-stop.addEventListener("click", () => {
-  let genRandomCell = () => {
-    let row = 30;
-    let col = 30;
-    let randomCell = [];
-    for (let i = 0; i < row; i++) {
-      randomCell[i] = [];
 
-      for (let j = 0; j < col; j++) {
-        randomCell[i][j] = 0;
+stop.addEventListener("click", () => {
+  if (isStart === true) {
+    let genRandomCell = () => {
+      let row = 30;
+      let col = 30;
+      let randomCell = [];
+      for (let i = 0; i < row; i++) {
+        randomCell[i] = [];
+
+        for (let j = 0; j < col; j++) {
+          randomCell[i][j] = 0;
+        }
+      }
+
+      return randomCell;
+    };
+
+    let temp = genRandomCell();
+
+    for (let i = 0; i < 30; i++) {
+      for (let j = 0; j < 30; j++) {
+        cellGrid[i][j] = temp[i][j];
       }
     }
 
-    return randomCell;
-  };
-
-  let temp = genRandomCell();
-
-  for (let i = 0; i < 30; i++) {
-    for (let j = 0; j < 30; j++) {
-      cellGrid[i][j] = temp[i][j];
-    }
+    renderGrid(cellGrid);
+    isStart = false;
   }
-
-  renderGrid(cellGrid);
 });
