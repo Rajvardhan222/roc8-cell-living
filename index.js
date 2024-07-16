@@ -64,9 +64,9 @@ let myNeighbours = (arr, row, col) => {
     const neighBourColIdx = col + neighBourCol;
 
     if (
-      neighBourRowIdx > 0 &&
+      neighBourRowIdx >= 0 &&
       neighBourRowIdx < 30 &&
-      neighBourColIdx > 0 &&
+      neighBourColIdx >= 0 &&
       neighBourColIdx < 30
     ) {
       // console.log(neighBourRowIdx);  // 1
